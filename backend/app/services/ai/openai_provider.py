@@ -134,3 +134,4 @@ Output JSON array of objects with keys: file_path, action, original_snippet, new
             pass
 
         return {"safe_to_apply": True, "risk_level": "low", "warnings": []}
+

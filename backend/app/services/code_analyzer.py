@@ -209,3 +209,4 @@ class LocalCodeAnalyzerService:
             if substring.lower() in line.lower():
                 return idx
         return None
+

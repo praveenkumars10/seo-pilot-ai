@@ -103,3 +103,4 @@ export interface GitStatus {
   untracked_files: string[];
   modified_files: string[];
 }
+

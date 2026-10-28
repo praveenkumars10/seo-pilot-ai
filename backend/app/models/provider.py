@@ -17,3 +17,4 @@ class AIProviderConfig(Base):
     last_tested_at = Column(DateTime, nullable=True)
     last_error = Column(Text, nullable=True)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+

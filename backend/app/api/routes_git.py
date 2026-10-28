@@ -25,3 +25,4 @@ def push_git_remote(
     if not result.get("success"):
         raise HTTPException(status_code=400, detail=result.get("error"))
     return result
+

@@ -40,3 +40,4 @@ def test_code_analyzer_detects_missing_assets_and_alt(tmp_path):
     assert "Default or Placeholder Page Title in Code" in issue_titles
     assert "Missing Meta Description Tag in Head" in issue_titles
     assert any("Missing 'alt' Attribute" in t for t in issue_titles)
+

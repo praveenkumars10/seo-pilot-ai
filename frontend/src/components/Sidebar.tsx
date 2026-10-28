@@ -28,6 +28,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab, pendi
     },
     { id: 'google', label: 'Google Search & Analytics', icon: BarChart3 },
     { id: 'ai', label: 'Multi-AI Providers', icon: Cpu },
+    { id: 'monitoring', label: 'Continuous Monitoring', icon: LayoutDashboard },
     { id: 'git', label: 'Git & Version Control', icon: GitBranch },
   ];
 
@@ -78,3 +79,4 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentTab, onSelectTab, pendi
     </aside>
   );
 };
+

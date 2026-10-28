@@ -121,3 +121,4 @@ export const ApprovalsView: React.FC<ApprovalsViewProps> = ({ onOpenApproval }) 
     </div>
   );
 };
+

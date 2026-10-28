@@ -60,3 +60,4 @@ async def delete_website(website_id: str, db: AsyncSession = Depends(get_db)):
     await db.delete(website)
     await db.commit()
     return None
+

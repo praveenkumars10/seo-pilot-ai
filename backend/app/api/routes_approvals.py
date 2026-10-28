@@ -276,3 +276,4 @@ async def submit_approval_decision(
     await db.refresh(plan)
 
     return _format_plan_response(plan)
+

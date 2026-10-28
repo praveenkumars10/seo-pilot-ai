@@ -48,3 +48,4 @@ async def configure_provider(provider_name: str, payload: AIProviderUpdate):
         "configured": True,
         "test_result": test_res
     }
+

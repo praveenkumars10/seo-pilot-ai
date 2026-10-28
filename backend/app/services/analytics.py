@@ -131,3 +131,4 @@ class GoogleAnalyticsService:
             }
 
 google_analytics_service = GoogleAnalyticsService()
+

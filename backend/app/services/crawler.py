@@ -102,6 +102,25 @@ class SEOCrawlerService:
         result = CrawlPageResult(url)
         start_time = time.time()
 
+        parsed_url = urlparse(url)
+        if parsed_url.scheme not in ["http", "https"]:
+            return result
+
+        # SSRF Protection: Block cloud metadata and dangerous internal addresses
+        blocked_hosts = {"169.254.169.254", "metadata.google.internal", "instance-data"}
+        if parsed_url.hostname in blocked_hosts:
+            result.status_code = 403
+            result.issues.append({
+                "category": "security",
+                "severity": "critical",
+                "title": "Blocked Insecure Cloud Metadata Endpoint (SSRF Guard)",
+                "url_or_file": url,
+                "evidence": f"Crawl target blocked by SSRF filter: {parsed_url.hostname}",
+                "root_cause_hypothesis": "Suspicious link pointing to internal cloud metadata.",
+                "recommended_fix": "Remove link to private cloud infrastructure."
+            })
+            return result
+
         try:
             resp = await client.get(url)
             result.response_time_ms = round((time.time() - start_time) * 1000, 2)

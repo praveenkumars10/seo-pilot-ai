@@ -88,3 +88,4 @@ Output STRICT JSON list of objects: [{{file_path, action, original_snippet, new_
         project_context: Dict[str, Any]
     ) -> Dict[str, Any]:
         return {"safe_to_apply": True, "risk_level": "low", "warnings": []}
+

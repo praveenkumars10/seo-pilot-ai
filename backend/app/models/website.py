@@ -21,3 +21,4 @@ class Website(Base):
     audits = relationship("Audit", back_populates="website", cascade="all, delete-orphan")
     issues = relationship("SEOIssue", back_populates="website", cascade="all, delete-orphan")
     change_plans = relationship("ChangePlan", back_populates="website", cascade="all, delete-orphan")
+

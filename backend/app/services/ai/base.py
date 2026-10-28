@@ -35,3 +35,4 @@ class AIProviderBase(ABC):
     ) -> Dict[str, Any]:
         """Perform secondary independent peer review of proposed code changes."""
         pass
+

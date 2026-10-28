@@ -24,3 +24,4 @@ class SEOIssue(Base):
 
     website = relationship("Website", back_populates="issues")
     audit = relationship("Audit", back_populates="issues")
+

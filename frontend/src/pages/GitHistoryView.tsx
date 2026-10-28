@@ -199,3 +199,4 @@ export const GitHistoryView: React.FC = () => {
     </div>
   );
 };
+

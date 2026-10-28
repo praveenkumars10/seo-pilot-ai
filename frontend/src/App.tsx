@@ -9,6 +9,7 @@ import { ApprovalsView } from './pages/ApprovalsView';
 import { GoogleIntegrationsView } from './pages/GoogleIntegrationsView';
 import { AISettingsView } from './pages/AISettingsView';
 import { GitHistoryView } from './pages/GitHistoryView';
+import { MonitoringView } from './pages/MonitoringView';
 import { ChangePlan, Website } from './types';
 import { api } from './services/api';
 
@@ -96,6 +97,8 @@ export function App() {
           {currentTab === 'google' && <GoogleIntegrationsView />}
 
           {currentTab === 'ai' && <AISettingsView />}
+
+          {currentTab === 'monitoring' && <MonitoringView />}
 
           {currentTab === 'git' && <GitHistoryView />}
         </main>

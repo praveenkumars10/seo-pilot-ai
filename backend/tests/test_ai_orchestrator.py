@@ -37,3 +37,4 @@ async def test_deterministic_fallback_when_no_api_keys():
     assert "public/robots.txt" in target_files
     assert "index.html" in target_files
     assert "diff" in fixes[0]
+

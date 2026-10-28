@@ -149,3 +149,4 @@ class GitService:
             return commits
         except Exception:
             return []
+

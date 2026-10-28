@@ -1,3 +1,4 @@
+import asyncio
 import logging
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
@@ -10,6 +11,8 @@ from backend.app.api.routes_approvals import router as approvals_router
 from backend.app.api.routes_ai import router as ai_router
 from backend.app.api.routes_google import router as google_router
 from backend.app.api.routes_git import router as git_router
+from backend.app.api.routes_monitoring import router as monitoring_router
+from backend.app.services.scheduler import audit_scheduler
 
 logging.basicConfig(
     level=logging.INFO,
@@ -21,8 +24,12 @@ logger = logging.getLogger("seopilot")
 async def lifespan(app: FastAPI):
     logger.info("Initializing database schema...")
     await init_db()
+    # Start background audit scheduler
+    sched_task = asyncio.create_task(audit_scheduler.start())
     logger.info("SEO Pilot AI backend started successfully.")
     yield
+    audit_scheduler.stop()
+    sched_task.cancel()
     logger.info("Shutting down SEO Pilot AI backend...")
 
 app = FastAPI(
@@ -53,6 +60,7 @@ app.include_router(approvals_router, prefix="/api")
 app.include_router(ai_router, prefix="/api")
 app.include_router(google_router, prefix="/api")
 app.include_router(git_router, prefix="/api")
+app.include_router(monitoring_router, prefix="/api")
 
 @app.get("/health")
 def health_check():
@@ -67,3 +75,4 @@ def health_check():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.app.main:app", host="0.0.0.0", port=settings.PORT, reload=True)
+

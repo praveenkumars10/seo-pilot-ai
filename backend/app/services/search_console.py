@@ -238,3 +238,4 @@ class SearchConsoleService:
             }
 
 search_console_service = SearchConsoleService()
+

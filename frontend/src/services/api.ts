@@ -190,5 +190,49 @@ export const api = {
       throw new Error(err.detail || 'Git push failed');
     }
     return res.json();
+  },
+
+  // Scheduling & Monitoring
+  getSchedules: async (): Promise<any[]> => {
+    const res = await fetch(`${API_BASE}/monitoring/schedules`);
+    if (!res.ok) throw new Error('Failed to fetch schedules');
+    return res.json();
+  },
+
+  scheduleWebsite: async (websiteId: string, intervalHours: number = 24): Promise<any> => {
+    const res = await fetch(`${API_BASE}/monitoring/schedule`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ website_id: websiteId, interval_hours: intervalHours }),
+    });
+    if (!res.ok) throw new Error('Failed to set schedule');
+    return res.json();
+  },
+
+  pauseSchedule: async (websiteId: string): Promise<any> => {
+    const res = await fetch(`${API_BASE}/monitoring/pause`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ website_id: websiteId }),
+    });
+    if (!res.ok) throw new Error('Failed to pause schedule');
+    return res.json();
+  },
+
+  resumeSchedule: async (websiteId: string): Promise<any> => {
+    const res = await fetch(`${API_BASE}/monitoring/resume`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ website_id: websiteId }),
+    });
+    if (!res.ok) throw new Error('Failed to resume schedule');
+    return res.json();
+  },
+
+  getAuditComparison: async (websiteId: string): Promise<any> => {
+    const res = await fetch(`${API_BASE}/monitoring/comparison/${encodeURIComponent(websiteId)}`);
+    if (!res.ok) throw new Error('Failed to fetch audit comparison');
+    return res.json();
   }
 };
+

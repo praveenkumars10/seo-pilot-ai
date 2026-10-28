@@ -274,3 +274,4 @@ export const ConsolidatedApprovalModal: React.FC<ConsolidatedApprovalModalProps>
     </div>
   );
 };
+

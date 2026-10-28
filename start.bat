@@ -14,3 +14,4 @@ echo Application successfully launched!
 echo Access the Dashboard at: http://localhost:5173
 echo API Documentation at:    http://localhost:8000/docs
 echo ========================================================
+

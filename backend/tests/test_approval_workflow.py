@@ -60,3 +60,4 @@ def test_code_modifier_automatic_rollback_on_test_failure(tmp_path):
     # File should have been rolled back to original safe text!
     restored_text = index_file.read_text(encoding="utf-8")
     assert restored_text == original_text
+

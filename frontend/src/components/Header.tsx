@@ -47,3 +47,4 @@ export const Header: React.FC<HeaderProps> = ({ pendingApprovalsCount, onOpenApp
     </header>
   );
 };
+

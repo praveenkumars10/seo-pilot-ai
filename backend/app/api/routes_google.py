@@ -68,3 +68,4 @@ def get_analytics_traffic(
 ):
     """Retrieve organic search sessions, channels, and landing pages from GA4."""
     return google_analytics_service.get_property_traffic(property_id=property_id, days=days)
+

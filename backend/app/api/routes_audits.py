@@ -156,3 +156,4 @@ async def get_audit_details(audit_id: str, db: AsyncSession = Depends(get_db)):
     if not audit:
         raise HTTPException(status_code=404, detail="Audit not found.")
     return audit
+

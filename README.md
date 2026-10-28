@@ -78,3 +78,4 @@ Build the frontend for production:
 ```bash
 cd frontend && npm run build
 ```
+

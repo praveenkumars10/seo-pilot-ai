@@ -56,3 +56,4 @@ def test_html_analysis_healthy_page():
     assert "critical" not in severities
     assert page_res.title.startswith("Professional Web Services")
     assert len(page_res.h1_tags) == 1
+

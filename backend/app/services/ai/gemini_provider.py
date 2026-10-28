@@ -152,3 +152,4 @@ Respond with a JSON object:
             pass
 
         return {"safe_to_apply": True, "risk_level": "low", "warnings": [], "recommended_tests": ["npm test"]}
+

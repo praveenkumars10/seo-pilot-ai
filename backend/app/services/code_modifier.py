@@ -51,12 +51,17 @@ class CodeModifierService:
             # Step 1: Backup and Apply
             for item in changes:
                 file_rel = item.get("file_path", "").lstrip("/\\")
-                target_path = self.repo_path / file_rel
+                target_path = (self.repo_path / file_rel).resolve()
+
+                # Path traversal security enforcement
+                if not target_path.is_relative_to(self.repo_path):
+                    raise PermissionError(f"Security Policy Violation: Path traversal blocked for '{file_rel}'.")
+
                 action = item.get("action", "modify")
                 orig_snippet = item.get("original_snippet", "")
                 new_snippet = item.get("new_snippet", "")
 
-                backup_target = current_backup_dir / file_rel
+                backup_target = (current_backup_dir / file_rel).resolve()
                 backup_target.parent.mkdir(parents=True, exist_ok=True)
 
                 if target_path.exists():
@@ -173,3 +178,4 @@ class CodeModifierService:
                     target_path.unlink()
             except Exception as e:
                 logger.error(f"Error restoring {target_path}: {e}")
+

@@ -12,3 +12,4 @@ Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location fron
 Write-Host "Both processes initiated!" -ForegroundColor Green
 Write-Host "Frontend Dashboard: http://localhost:5173" -ForegroundColor Yellow
 Write-Host "Backend API Docs:   http://localhost:8000/docs" -ForegroundColor Yellow
+

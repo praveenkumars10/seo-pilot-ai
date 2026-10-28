@@ -145,3 +145,4 @@ Return JSON: {{"safe_to_apply": bool, "risk_level": "low"|"medium"|"high", "warn
             pass
 
         return {"safe_to_apply": True, "risk_level": "low", "warnings": []}
+

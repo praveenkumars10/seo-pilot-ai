@@ -49,3 +49,4 @@ class Settings(BaseSettings):
     AUTO_ROLLBACK_ON_TEST_FAILURE: bool = True
 
 settings = Settings()
+

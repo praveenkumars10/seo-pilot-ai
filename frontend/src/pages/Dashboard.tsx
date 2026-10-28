@@ -282,3 +282,4 @@ export const Dashboard: React.FC<DashboardProps> = ({ onNavigate, onOpenApproval
     </div>
   );
 };
+

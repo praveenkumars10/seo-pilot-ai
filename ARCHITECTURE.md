@@ -65,3 +65,4 @@ SEO Pilot AI is an autonomous SEO engineering platform designed to run locally i
 ### E. Google OAuth2 Integrations
 - Search Console API: List sites, query search performance (clicks, impressions, CTR, position), and inspect individual URLs.
 - Google Analytics 4: Reports organic search sessions, channels, and landing page metrics.
+

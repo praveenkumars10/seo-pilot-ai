@@ -31,3 +31,4 @@ def test_git_service_redacts_env_secrets(tmp_path):
     assert res["success"] is True
     assert "index.html" in res["files_committed"]
     assert ".env" not in res["files_committed"]  # Sensitive file blocked!
+

@@ -238,3 +238,4 @@ export const GoogleIntegrationsView: React.FC = () => {
     </div>
   );
 };
+
