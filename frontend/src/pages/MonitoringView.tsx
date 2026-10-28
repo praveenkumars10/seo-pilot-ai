@@ -241,3 +241,4 @@ export const MonitoringView: React.FC = () => {
     </div>
   );
 };
+

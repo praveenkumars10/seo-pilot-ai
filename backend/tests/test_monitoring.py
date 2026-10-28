@@ -37,3 +37,4 @@ async def test_scheduler_and_monitoring_endpoints():
         comp_res = await ac.get("/api/monitoring/comparison/non-existent-site")
         assert comp_res.status_code == 200
         assert comp_res.json()["has_history"] is False
+

@@ -81,3 +81,4 @@ async def get_audit_comparison(website_id: str, db: AsyncSession = Depends(get_d
         "latest_date": latest.created_at.isoformat(),
         "previous_date": previous.created_at.isoformat() if previous else None
     }
+
